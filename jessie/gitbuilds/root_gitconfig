@@ -1,0 +1,13 @@
+[user]
+	name = Ariel T. Glenn
+	email = ariel@wikimedia.org
+[core]
+	editor = emacs
+[merge]
+	tool = meld
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[url "git://git.debian.org/d-i/"]
+	insteadOf = git+ssh://git.debian.org/git/d-i/
