@@ -11,6 +11,7 @@ RUN apt-get install -y zip unzip debian-archive-keyring ubuntu-archive-keyring
 
 ADD ./pbuilderrc /etc/pbuilderrc
 ADD ./buildcows.sh /root/buildcows.sh
+ADD ./updatecows.sh /root/updatecows.sh
 ADD ./quiltrc-dpkg /root/.quiltrc-dpkg
 ADD ./root_gitconfig /root/.gitconfig
 ADD ./bashrc_addons /root/bashrc_addons
