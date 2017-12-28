@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Avoid running hooks if wikimedia is not specified
+if [ "${WIKIMEDIA}" = "yes" ]; then
+	cat > /etc/apt/sources.list.d/wikimedia.list <<-'EOF'
+	deb http://apt.wikimedia.org/wikimedia stretch-wikimedia main backports thirdparty
+	deb-src http://apt.wikimedia.org/wikimedia stretch-wikimedia main backports thirdparty
+EOF
+	cat > /etc/apt/preferences.d/wikimedia.pref <<-'EOF'
+	Package: *
+	Pin: release o=Wikimedia
+	Pin-Priority: 1001
+EOF
+	apt-get install wget -y
+	wget -O - -o /dev/null http://apt.wikimedia.org/autoinstall/keyring/wikimedia-archive-keyring.gpg | apt-key add -
+	apt-get update
+fi
